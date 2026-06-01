@@ -1,0 +1,27 @@
+# Dependency directories
+node_modules/
+
+# Build outputs
+dist/
+dist-ssr/
+build/
+
+# Local configuration files (CRITICAL: Keeps secrets out of Git)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.example
+
+# SQL and Documentation (User request to avoid pushing schemas & docx/md)
+*.sql
+*.docx
+*.md
+.gemini/
+*.pdf
+
+# System files
+.DS_Store
+Thumbs.db
+*.log
