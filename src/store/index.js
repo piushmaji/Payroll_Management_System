@@ -1,119 +1,12 @@
 import { create } from 'zustand';
 import { getSupabaseClient } from '../lib/supabaseClient';
 
-// Preloaded mock employees (Fallback)
-const INITIAL_EMPLOYEES = [
-  {
-    id: "101",
-    name: "Rahul Sharma",
-    email: "rahul@company.com",
-    role: "Senior Software Eng",
-    department: "Information Technology",
-    status: "Active",
-    baseSalary: 800000,
-    allowance: 216000,
-    deductions: 77400,
-    joinedDate: "2018-06-01",
-    bankName: "Chase Manhattan Bank",
-    bankAccount: "•••• •••• 9840",
-    pan: "ABCDE1234F",
-    pfAccount: "PF-2022-884-01",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150"
-  },
-  {
-    id: "102",
-    name: "Priya Verma",
-    email: "priya@company.com",
-    role: "Software Engineer",
-    department: "Information Technology",
-    status: "Active",
-    baseSalary: 400000,
-    allowance: 100800,
-    deductions: 42000,
-    joinedDate: "2019-03-15",
-    bankName: "Wells Fargo Bank",
-    bankAccount: "•••• •••• 1024",
-    pan: "FGHIJ5678K",
-    pfAccount: "PF-2021-392-05",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150"
-  },
-  {
-    id: "103",
-    name: "Amit Kumar",
-    email: "amit@company.com",
-    role: "Tech Lead",
-    department: "Information Technology",
-    status: "Active",
-    baseSalary: 1200000,
-    allowance: 336000,
-    deductions: 120000,
-    joinedDate: "2015-09-10",
-    bankName: "Bank of America",
-    bankAccount: "•••• •••• 5590",
-    pan: "KLMNO9012P",
-    pfAccount: "PF-2023-119-02",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150"
-  },
-  {
-    id: "104",
-    name: "Sneha Patel",
-    email: "sneha@company.com",
-    role: "HR Executive",
-    department: "Human Resources",
-    status: "Active",
-    baseSalary: 350000,
-    allowance: 91200,
-    deductions: 38000,
-    joinedDate: "2021-01-20",
-    bankName: "CitiBank N.A.",
-    bankAccount: "•••• •••• 4402",
-    pan: "QRSTU3456V",
-    pfAccount: "PF-2023-903-88",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150"
-  },
-  {
-    id: "105",
-    name: "Ananya Nair",
-    email: "ananya@company.com",
-    role: "Software Engineer",
-    department: "Marketing",
-    status: "Active",
-    baseSalary: 400000,
-    allowance: 24000,
-    deductions: 0,
-    joinedDate: "2022-07-11",
-    bankName: "Silicon Valley Bank",
-    bankAccount: "•••• •••• 8847",
-    pan: "WXYZA7890B",
-    pfAccount: "PF-2022-671-33",
-    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150"
-  }
-];
-
-// Preloaded mock payroll run history
-const INITIAL_PAYROLL_RUNS = [
-  { id: "PAY-2026-003", month: "March 2026", activeHeadcount: 5, totalBase: 3150000, totalAllowances: 768000, totalDeductions: 277400, totalNet: 3640600, status: "Processed", runDate: "2026-03-28" }
-];
-
-// Preloaded projects list
-const INITIAL_PROJECTS = [
-  { id: "1", name: "ERP Implementation", teamSize: 4, budget: 140000, hoursLogged: 840, status: "On Track", department: "Information Technology" },
-  { id: "2", name: "Mobile App Dev", teamSize: 3, budget: 95000, hoursLogged: 610, status: "Caution", department: "Information Technology" },
-  { id: "3", name: "HR Automation", teamSize: 2, budget: 45000, hoursLogged: 220, status: "On Track", department: "Human Resources" }
-];
-
-// Preloaded departments
-const INITIAL_DEPARTMENTS = [
-  { id: 1, name: "Human Resources", code: "HUM", head: "Sneha Patel", headcount: 1, monthlyBudget: 416666, expenseRatio: 40 },
-  { id: 2, name: "Information Technology", code: "INF", head: "Amit Kumar", headcount: 3, monthlyBudget: 1250000, expenseRatio: 78 },
-  { id: 3, name: "Finance", code: "FIN", head: "Vacant", headcount: 0, monthlyBudget: 833333, expenseRatio: 0 },
-  { id: 4, name: "Marketing", code: "MAR", head: "Ananya Nair", headcount: 1, monthlyBudget: 666666, expenseRatio: 30 }
-];
-
-// Preloaded notifications
-const INITIAL_NOTIFICATIONS = [
-  { id: "notif-1", title: "Supabase Pipeline Ready", body: "SQL 8-Entity schema configured. Connect via Settings page to enable live database.", type: "info", date: "Just now", read: false }
-];
+// Preloaded mock data fallbacks (Cleared for active Supabase pipeline)
+const INITIAL_EMPLOYEES = [];
+const INITIAL_PAYROLL_RUNS = [];
+const INITIAL_PROJECTS = [];
+const INITIAL_DEPARTMENTS = [];
+const INITIAL_NOTIFICATIONS = [];
 
 export const useStore = create((set, get) => ({
   // Authentication & Layout Context

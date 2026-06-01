@@ -9,8 +9,7 @@ let currentKey = null;
  * Returns null if credentials are empty or invalid.
  */
 export function getSupabaseClient(url, key) {
-  if (!url || !key || url.includes('payflow-prod-db') || key.includes('••••')) {
-    // If it's the mock values or empty, return null to signify mock/offline mode
+  if (!url || !key) {
     return null;
   }
   
