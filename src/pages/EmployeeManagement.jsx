@@ -505,7 +505,7 @@ export default function EmployeeManagement() {
                     type="email" 
                     value={newEmp.email}
                     onChange={(e) => setNewEmp({...newEmp, email: e.target.value})}
-                    placeholder="rachel.a@payflow.com"
+                    placeholder="rachel.a@nexpayflow.com"
                     className="premium-input text-xs" 
                     required 
                   />

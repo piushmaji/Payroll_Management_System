@@ -57,8 +57,8 @@ export default function MainLayout({ children }) {
       {/* MOBILE HEADER */}
       <header className="md:hidden w-full flex items-center justify-between px-4 py-4 glass-nav z-40">
         <div className="flex items-center gap-2">
-          <div className="h-8 w-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-bold text-lg shadow-md shadow-indigo-600/30">P</div>
-          <span className="font-bold tracking-tight text-lg font-sans">PayFlow Pro</span>
+          <div className="h-8 w-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-bold text-lg shadow-md shadow-indigo-600/30">N</div>
+          <span className="font-bold tracking-tight text-lg font-sans">Nexpayflow</span>
         </div>
         <div className="flex items-center gap-2">
           <button 
@@ -88,9 +88,9 @@ export default function MainLayout({ children }) {
         <div>
           <div className="flex items-center justify-between p-6">
             <div className="flex items-center gap-3">
-              <div className="h-9 w-9 rounded-xl bg-indigo-600 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-indigo-600/30">P</div>
+              <div className="h-9 w-9 rounded-xl bg-indigo-600 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-indigo-600/30">N</div>
               <div className="flex flex-col">
-                <span className="font-bold tracking-tight text-base font-sans">PayFlow Pro</span>
+                <span className="font-bold tracking-tight text-base font-sans">Nexpayflow</span>
                 <span className="text-[10px] text-zinc-400 dark:text-zinc-500 font-semibold tracking-wider uppercase">Enterprise SaaS</span>
               </div>
             </div>
@@ -211,7 +211,7 @@ export default function MainLayout({ children }) {
         <header className="hidden md:flex items-center justify-between px-8 py-5 glass-nav sticky top-0 z-30">
           <div className="flex flex-col">
             <h1 className="text-base font-bold text-zinc-950 dark:text-white capitalize flex items-center gap-2">
-              {menuItems.find(item => item.id === currentRoute)?.label || "PayFlow Platform"}
+              {menuItems.find(item => item.id === currentRoute)?.label || "Nexpayflow Platform"}
               <span className="text-[10px] py-0.5 px-2 bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 rounded-full font-semibold border border-indigo-100/50 dark:border-indigo-900/30">V1.2 Live</span>
             </h1>
             <p className="text-[11px] text-zinc-400 dark:text-zinc-500 font-semibold mt-0.5">Enterprise HR, payroll distribution, and tax reconciliation pipelines.</p>
@@ -316,7 +316,7 @@ export default function MainLayout({ children }) {
             </div>
 
             <div className="p-6 border-t border-zinc-200/50 dark:border-zinc-800/40 text-[10px] text-center text-zinc-400 dark:text-zinc-500">
-              PayFlow Activity Log Pipeline • Refreshed live
+              Nexpayflow Activity Log Pipeline • Refreshed live
             </div>
           </div>
         </>

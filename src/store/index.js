@@ -12,7 +12,7 @@ export const useStore = create((set, get) => ({
   // Authentication & Layout Context
   user: {
     name: "Piush Maji",
-    email: "piush@payflow.com",
+    email: "piush@nexpayflow.com",
     role: "System Administrator",
     avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150"
   },
@@ -43,14 +43,14 @@ export const useStore = create((set, get) => ({
 
   // Tax Configurations & System Settings
   settings: {
-    companyName: "PayFlow Corp",
-    companyEmail: "payroll@payflow.com",
+    companyName: "Nexpayflow Corp",
+    companyEmail: "payroll@nexpayflow.com",
     baseTaxRate: 15,
     pfContribution: 12,
     currency: "INR",
     allowManualPayslipOverride: true,
-    supabaseUrl: typeof window !== 'undefined' ? localStorage.getItem('payflow_supabase_url') || import.meta.env.VITE_SUPABASE_URL || '' : import.meta.env.VITE_SUPABASE_URL || '',
-    supabaseKey: typeof window !== 'undefined' ? localStorage.getItem('payflow_supabase_key') || import.meta.env.VITE_SUPABASE_ANON_KEY || '' : import.meta.env.VITE_SUPABASE_ANON_KEY || ''
+    supabaseUrl: typeof window !== 'undefined' ? localStorage.getItem('nexpayflow_supabase_url') || localStorage.getItem('payflow_supabase_url') || import.meta.env.VITE_SUPABASE_URL || '' : import.meta.env.VITE_SUPABASE_URL || '',
+    supabaseKey: typeof window !== 'undefined' ? localStorage.getItem('nexpayflow_supabase_key') || localStorage.getItem('payflow_supabase_key') || import.meta.env.VITE_SUPABASE_ANON_KEY || '' : import.meta.env.VITE_SUPABASE_ANON_KEY || ''
   },
 
   // Initialize store and fetch Supabase data immediately if configured
@@ -653,10 +653,10 @@ export const useStore = create((set, get) => ({
     const updated = { ...state.settings, ...newSettings };
     
     if (newSettings.supabaseUrl !== undefined) {
-      localStorage.setItem('payflow_supabase_url', newSettings.supabaseUrl);
+      localStorage.setItem('nexpayflow_supabase_url', newSettings.supabaseUrl);
     }
     if (newSettings.supabaseKey !== undefined) {
-      localStorage.setItem('payflow_supabase_key', newSettings.supabaseKey);
+      localStorage.setItem('nexpayflow_supabase_key', newSettings.supabaseKey);
     }
 
     // Re-trigger fetch dynamically

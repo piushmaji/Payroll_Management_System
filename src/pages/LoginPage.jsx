@@ -4,7 +4,7 @@ import { Lock, Mail, ArrowRight, ShieldCheck, HelpCircle } from 'lucide-react';
 
 export default function LoginPage() {
   const { login, setCurrentRoute } = useStore();
-  const [email, setEmail] = useState("admin@payflow.com");
+  const [email, setEmail] = useState("admin@nexpayflow.com");
   const [password, setPassword] = useState("••••••••");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -19,7 +19,7 @@ export default function LoginPage() {
         login(email, "password");
         setCurrentRoute("dashboard");
       } else {
-        setError("Invalid credentials. Try using admin@payflow.com");
+        setError("Invalid credentials. Try using admin@nexpayflow.com");
         setLoading(false);
       }
     }, 800);
@@ -36,8 +36,8 @@ export default function LoginPage() {
         
         {/* LOGO */}
         <div className="flex flex-col items-center mb-8">
-          <div className="h-12 w-12 rounded-2xl bg-indigo-600 flex items-center justify-center text-white font-bold text-2xl shadow-lg shadow-indigo-600/30 mb-3">P</div>
-          <h2 className="text-xl font-bold tracking-tight text-zinc-900 font-sans">Welcome to PayFlow Pro</h2>
+          <div className="h-12 w-12 rounded-2xl bg-indigo-600 flex items-center justify-center text-white font-bold text-2xl shadow-lg shadow-indigo-600/30 mb-3">N</div>
+          <h2 className="text-xl font-bold tracking-tight text-zinc-900 font-sans">Welcome to Nexpayflow</h2>
           <p className="text-xs text-zinc-500 mt-1">Enterprise Grade Human Resources & Payroll Platform</p>
         </div>
 
@@ -47,7 +47,7 @@ export default function LoginPage() {
           <div className="absolute top-0 left-0 right-0 h-1.5 bg-indigo-600" />
           
           <div className="absolute top-3 right-3">
-            <HelpCircle size={15} className="text-zinc-400 cursor-pointer hover:text-zinc-600" title="Need help? Email support@payflow.com" />
+            <HelpCircle size={15} className="text-zinc-400 cursor-pointer hover:text-zinc-600" title="Need help? Email support@nexpayflow.com" />
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-5">
@@ -118,7 +118,7 @@ export default function LoginPage() {
         <div className="mt-8 text-center text-[10px] text-zinc-400 font-bold flex justify-center gap-6">
           <a href="#privacy" className="hover:text-zinc-650">Privacy Policy</a>
           <a href="#terms" className="hover:text-zinc-650">Terms of Service</a>
-          <span>© 2026 PayFlow Pro Inc.</span>
+          <span>© 2026 Nexpayflow Inc.</span>
         </div>
       </div>
     </div>
