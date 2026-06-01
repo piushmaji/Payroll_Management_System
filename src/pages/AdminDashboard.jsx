@@ -209,7 +209,7 @@ export default function AdminDashboard() {
           <div className="flex items-center justify-between">
             <div className="flex flex-col">
               <span className="text-xs font-semibold text-zinc-400 dark:text-zinc-500">PAYROLL DISTRIBUTION RECONCILIATION</span>
-              <span className="text-base font-bold dark:text-white mt-0.5">Total Payroll Disbursements ($)</span>
+              <span className="text-base font-bold dark:text-white mt-0.5">Total Payroll Disbursements (₹)</span>
             </div>
             <div className="flex items-center gap-1.5 py-1 px-2.5 bg-zinc-100 dark:bg-zinc-900 rounded-lg text-[10px] font-semibold text-zinc-500 dark:text-zinc-400">
               <TrendingUp size={11} className="text-indigo-500" />
@@ -233,12 +233,14 @@ export default function AdminDashboard() {
                     backgroundColor: 'rgba(24, 24, 27, 0.95)', 
                     borderColor: 'rgba(63, 63, 70, 0.5)',
                     borderRadius: '12px',
-                    color: '#fff',
-                    fontSize: '11px'
+                    fontSize: '11px',
+                    padding: '8px 12px'
                   }} 
+                  labelStyle={{ color: '#a1a1aa', fontWeight: '600' }}
+                  itemStyle={{ color: '#ffffff' }}
                   cursor={{ stroke: '#6366f1', strokeWidth: 1, strokeDasharray: '4 4' }}
                 />
-                <Area type="monotone" dataKey="expense" name="Expense ($k)" stroke="#6366f1" strokeWidth={2.5} fillOpacity={1} fill="url(#colorExpense)" />
+                <Area type="monotone" dataKey="expense" name="Expense (₹k)" stroke="#6366f1" strokeWidth={2.5} fillOpacity={1} fill="url(#colorExpense)" />
               </AreaChart>
             </ResponsiveContainer>
           </div>
@@ -259,14 +261,29 @@ export default function AdminDashboard() {
                 <Tooltip 
                   contentStyle={{ 
                     backgroundColor: 'rgba(24, 24, 27, 0.95)', 
+                    borderColor: 'rgba(63, 63, 70, 0.5)',
                     borderRadius: '12px',
-                    color: '#fff',
-                    fontSize: '11px'
+                    fontSize: '11px',
+                    padding: '8px 12px'
                   }} 
+                  labelStyle={{ color: '#a1a1aa', fontWeight: '600' }}
+                  itemStyle={{ color: '#ffffff' }}
+                  cursor={{ fill: 'rgba(99, 102, 241, 0.05)', radius: [6, 6, 0, 0] }}
                 />
-                <Bar dataKey="budget" name="Budget ($k)" radius={[6, 6, 0, 0]}>
+                <Bar 
+                  dataKey="budget" 
+                  name="Budget (₹k)" 
+                  radius={[6, 6, 0, 0]}
+                  animationDuration={400}
+                  animationEasing="ease-out"
+                  activeBar={{ fillOpacity: 0.8, stroke: '#6366f1', strokeWidth: 1 }}
+                >
                   {deptChartData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                    <Cell 
+                      key={`cell-${index}`} 
+                      fill={COLORS[index % COLORS.length]} 
+                      style={{ cursor: 'pointer', transition: 'all 0.2s ease' }}
+                    />
                   ))}
                 </Bar>
               </BarChart>

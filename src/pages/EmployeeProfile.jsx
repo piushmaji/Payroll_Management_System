@@ -57,7 +57,7 @@ export default function EmployeeProfile() {
           <h3 className="text-base font-extrabold dark:text-white">{user?.name}</h3>
           <span className="text-xs text-indigo-600 dark:text-indigo-400 font-semibold mt-1">{user?.role}</span>
           <span className="text-[10px] text-zinc-400 dark:text-zinc-500 font-bold uppercase tracking-wider mt-1.5 bg-zinc-50 dark:bg-zinc-950 px-2 py-0.5 rounded border border-zinc-200 dark:border-zinc-900">
-            ID: ADM-2026-904
+            ID: ADM-2026-101
           </span>
 
           <div className="w-full border-t border-zinc-100 dark:border-zinc-900/60 mt-6 pt-5 space-y-3.5 text-xs text-left text-zinc-400 dark:text-zinc-500 font-semibold">
@@ -67,11 +67,11 @@ export default function EmployeeProfile() {
             </div>
             <div className="flex items-center gap-2.5">
               <Phone size={14} className="text-zinc-400" />
-              <span className="dark:text-zinc-300">+1 (555) 302-8849</span>
+              <span className="dark:text-zinc-300">+91 98765 43210</span>
             </div>
             <div className="flex items-center gap-2.5">
               <MapPin size={14} className="text-zinc-400" />
-              <span className="dark:text-zinc-300">San Francisco, CA</span>
+              <span className="dark:text-zinc-300">Mumbai, India</span>
             </div>
           </div>
         </div>
@@ -115,12 +115,12 @@ export default function EmployeeProfile() {
 
                   <div className="p-3 bg-zinc-50/50 dark:bg-zinc-950/30 border border-zinc-200 dark:border-zinc-900 rounded-xl space-y-1">
                     <span className="text-[10px] text-zinc-400 dark:text-zinc-500 font-semibold block">Primary Personal Email</span>
-                    <span className="font-bold dark:text-white block mt-0.5">alex.thorne.personal@gmail.com</span>
+                    <span className="font-bold dark:text-white block mt-0.5">piush.maji.personal@gmail.com</span>
                   </div>
 
                   <div className="p-3 bg-zinc-50/50 dark:bg-zinc-950/30 border border-zinc-200 dark:border-zinc-900 rounded-xl space-y-1">
                     <span className="text-[10px] text-zinc-400 dark:text-zinc-500 font-semibold block">Resident Address</span>
-                    <span className="font-bold dark:text-white block mt-0.5">42 Walnut Avenue, San Francisco, CA</span>
+                    <span className="font-bold dark:text-white block mt-0.5">Andheri East, Mumbai, India</span>
                   </div>
 
                   <div className="p-3 bg-zinc-50/50 dark:bg-zinc-950/30 border border-zinc-200 dark:border-zinc-900 rounded-xl space-y-1">
@@ -150,7 +150,7 @@ export default function EmployeeProfile() {
 
                   <div className="p-3 bg-zinc-50/50 dark:bg-zinc-950/30 border border-zinc-200 dark:border-zinc-900 rounded-xl space-y-1">
                     <span className="text-[10px] text-zinc-400 dark:text-zinc-500 font-semibold block">Annual Base Wage</span>
-                    <span className="font-bold dark:text-white block mt-0.5">$180,000 / year</span>
+                    <span className="font-bold dark:text-white block mt-0.5">₹1,80,000 / year</span>
                   </div>
                 </div>
               )}

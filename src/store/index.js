@@ -11,8 +11,8 @@ const INITIAL_NOTIFICATIONS = [];
 export const useStore = create((set, get) => ({
   // Authentication & Layout Context
   user: {
-    name: "Alex Thorne",
-    email: "alex.t@payflow.com",
+    name: "Piush Maji",
+    email: "piush@payflow.com",
     role: "System Administrator",
     avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150"
   },
@@ -256,7 +256,7 @@ export const useStore = create((set, get) => ({
     if (email && password) {
       set({
         user: {
-          name: "Alex Thorne",
+          name: "Piush Maji",
           email: email,
           role: "System Administrator",
           avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150"

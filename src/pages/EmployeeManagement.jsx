@@ -276,7 +276,7 @@ export default function EmployeeManagement() {
                         <span className="text-xs font-semibold px-2.5 py-1 rounded-lg bg-zinc-100 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 border border-zinc-200/20 dark:border-zinc-800/30">{emp.department}</span>
                       </td>
                       <td className="py-4 px-4">
-                        <span className="text-xs font-bold dark:text-white">${emp.baseSalary.toLocaleString()}/yr</span>
+                        <span className="text-xs font-bold dark:text-white">₹{emp.baseSalary.toLocaleString()}/yr</span>
                       </td>
                       <td className="py-4 px-4">
                         <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
@@ -419,20 +419,20 @@ export default function EmployeeManagement() {
                   <div className="p-4 bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-xl space-y-3">
                     <div className="flex justify-between items-center text-xs">
                       <span className="text-zinc-400 dark:text-zinc-500">Base Salary</span>
-                      <span className="font-bold dark:text-white">${selectedEmployee.baseSalary.toLocaleString()}/yr</span>
+                      <span className="font-bold dark:text-white">₹{selectedEmployee.baseSalary.toLocaleString()}/yr</span>
                     </div>
                     <div className="flex justify-between items-center text-xs">
                       <span className="text-zinc-400 dark:text-zinc-500">Variable Allowances</span>
-                      <span className="font-bold text-emerald-600 dark:text-emerald-400">+${selectedEmployee.allowance.toLocaleString()}/yr</span>
+                      <span className="font-bold text-emerald-600 dark:text-emerald-400">+₹{selectedEmployee.allowance.toLocaleString()}/yr</span>
                     </div>
                     <div className="flex justify-between items-center text-xs pb-3 border-b border-zinc-300 dark:border-zinc-800">
                       <span className="text-zinc-400 dark:text-zinc-500">Tax Deductions</span>
-                      <span className="font-bold text-rose-500">-${selectedEmployee.deductions.toLocaleString()}/yr</span>
+                      <span className="font-bold text-rose-500">-₹{selectedEmployee.deductions.toLocaleString()}/yr</span>
                     </div>
                     <div className="flex justify-between items-center text-xs pt-1">
                       <span className="text-zinc-400 dark:text-zinc-500 font-bold">Estimated Net Pay</span>
                       <span className="font-extrabold dark:text-white text-sm">
-                        ${(selectedEmployee.baseSalary + selectedEmployee.allowance - selectedEmployee.deductions).toLocaleString()}/yr
+                        ₹{(selectedEmployee.baseSalary + selectedEmployee.allowance - selectedEmployee.deductions).toLocaleString()}/yr
                       </span>
                     </div>
                   </div>
@@ -540,7 +540,7 @@ export default function EmployeeManagement() {
 
               <div className="grid grid-cols-3 gap-4">
                 <div className="space-y-1">
-                  <label className="text-[11px] font-semibold text-zinc-400 dark:text-zinc-500">Base Salary ($)</label>
+                  <label className="text-[11px] font-semibold text-zinc-400 dark:text-zinc-500">Base Salary (₹)</label>
                   <input 
                     type="number" 
                     value={newEmp.baseSalary}
@@ -550,7 +550,7 @@ export default function EmployeeManagement() {
                   />
                 </div>
                 <div className="space-y-1">
-                  <label className="text-[11px] font-semibold text-zinc-400 dark:text-zinc-500">Allowance ($)</label>
+                  <label className="text-[11px] font-semibold text-zinc-400 dark:text-zinc-500">Allowance (₹)</label>
                   <input 
                     type="number" 
                     value={newEmp.allowance}
@@ -559,7 +559,7 @@ export default function EmployeeManagement() {
                   />
                 </div>
                 <div className="space-y-1">
-                  <label className="text-[11px] font-semibold text-zinc-400 dark:text-zinc-500">Deductions ($)</label>
+                  <label className="text-[11px] font-semibold text-zinc-400 dark:text-zinc-500">Deductions (₹)</label>
                   <input 
                     type="number" 
                     value={newEmp.deductions}

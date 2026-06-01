@@ -76,7 +76,7 @@ export default function DepartmentManagement() {
           </div>
           <div className="flex flex-col">
             <span className="text-xs text-zinc-400 dark:text-zinc-500 font-semibold">Aggregate Allocated Budget Pool</span>
-            <span className="text-lg font-bold dark:text-white mt-0.5">${(totalCorporateBudget / 1000).toFixed(1)}k / month</span>
+            <span className="text-lg font-bold dark:text-white mt-0.5">₹{(totalCorporateBudget / 1000).toFixed(1)}k / month</span>
           </div>
         </div>
       </div>
@@ -126,7 +126,7 @@ export default function DepartmentManagement() {
                 <div className="flex justify-between items-center text-[10px] font-semibold text-zinc-400 dark:text-zinc-500">
                   <span>BUDGET UTILIZATION</span>
                   <span className={costPercentage > 85 ? 'text-rose-500 font-bold' : 'dark:text-zinc-300 font-bold'}>
-                    ${estimatedCost.toLocaleString(undefined, {maximumFractionDigits: 0})} / ${(dept.monthlyBudget).toLocaleString()}
+                    ₹{estimatedCost.toLocaleString(undefined, {maximumFractionDigits: 0})} / ₹{(dept.monthlyBudget).toLocaleString()}
                   </span>
                 </div>
                 <div className="w-full h-1.5 rounded-full bg-zinc-100 dark:bg-zinc-950 overflow-hidden border border-zinc-200/20 dark:border-zinc-800">
@@ -195,7 +195,7 @@ export default function DepartmentManagement() {
               </div>
 
               <div className="space-y-1">
-                <label className="text-[11px] font-semibold text-zinc-400 dark:text-zinc-500">Monthly Operating Budget ($)</label>
+                <label className="text-[11px] font-semibold text-zinc-400 dark:text-zinc-500">Monthly Operating Budget (₹)</label>
                 <input 
                   type="number" 
                   value={newDept.monthlyBudget}

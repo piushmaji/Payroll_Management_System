@@ -108,12 +108,12 @@ export default function PayslipGeneration() {
             {/* Base Pay Log */}
             <div className="p-3 bg-zinc-50 dark:bg-zinc-950/20 border border-zinc-200/50 dark:border-zinc-900 rounded-xl flex justify-between items-center text-xs">
               <span className="text-zinc-400 dark:text-zinc-500">Base Salary (Gross / Yr)</span>
-              <span className="font-bold dark:text-white">${employee.baseSalary.toLocaleString()}</span>
+              <span className="font-bold dark:text-white">₹{employee.baseSalary.toLocaleString()}</span>
             </div>
 
             {/* Adjusted Allowances */}
             <div className="space-y-1.5">
-              <label className="text-[11px] font-semibold text-zinc-400 dark:text-zinc-500">Adjust Annual Allowance Additions ($)</label>
+              <label className="text-[11px] font-semibold text-zinc-400 dark:text-zinc-500">Adjust Annual Allowance Additions (₹)</label>
               <input 
                 type="number" 
                 value={allowancesInput}
@@ -125,7 +125,7 @@ export default function PayslipGeneration() {
             {/* Month-Specific Bonus */}
             <div className="space-y-1.5">
               <div className="flex items-center justify-between">
-                <label className="text-[11px] font-semibold text-zinc-400 dark:text-zinc-500">Performance Bonuses ($ / Month)</label>
+                <label className="text-[11px] font-semibold text-zinc-400 dark:text-zinc-500">Performance Bonuses (₹ / Month)</label>
                 <span className="text-[9px] font-semibold text-emerald-500 flex items-center gap-0.5">
                   <Sparkles size={9} />
                   <span>One-time addition</span>
@@ -142,7 +142,7 @@ export default function PayslipGeneration() {
 
             {/* Adjusted Deductions */}
             <div className="space-y-1.5">
-              <label className="text-[11px] font-semibold text-zinc-400 dark:text-zinc-500">Adjust Custom Deductibles ($ / Yr)</label>
+              <label className="text-[11px] font-semibold text-zinc-400 dark:text-zinc-500">Adjust Custom Deductibles (₹ / Yr)</label>
               <input 
                 type="number" 
                 value={deductionsInput}
@@ -226,18 +226,18 @@ export default function PayslipGeneration() {
                 <div className="space-y-2">
                   <div className="flex justify-between items-center">
                     <span className="text-zinc-500 dark:text-zinc-400">Basic Monthly Allocation</span>
-                    <span className="font-bold dark:text-white">${baseSalaryMonthly.toLocaleString(undefined, {maximumFractionDigits: 2})}</span>
+                    <span className="font-bold dark:text-white">₹{baseSalaryMonthly.toLocaleString(undefined, {maximumFractionDigits: 2})}</span>
                   </div>
                   {allowancesInput > 0 && (
                     <div className="flex justify-between items-center">
                       <span className="text-zinc-500 dark:text-zinc-400">Monthly Compensation Allowance</span>
-                      <span className="font-bold dark:text-white">${allowancesMonthly.toLocaleString(undefined, {maximumFractionDigits: 2})}</span>
+                      <span className="font-bold dark:text-white">₹{allowancesMonthly.toLocaleString(undefined, {maximumFractionDigits: 2})}</span>
                     </div>
                   )}
                   {bonusesMonthly > 0 && (
                     <div className="flex justify-between items-center">
                       <span className="text-zinc-500 dark:text-zinc-400">Performance Bonuses Additions</span>
-                      <span className="font-bold text-emerald-600 dark:text-emerald-400">+${bonusesMonthly.toLocaleString(undefined, {maximumFractionDigits: 2})}</span>
+                      <span className="font-bold text-emerald-600 dark:text-emerald-400">+₹{bonusesMonthly.toLocaleString(undefined, {maximumFractionDigits: 2})}</span>
                     </div>
                   )}
                 </div>
@@ -252,16 +252,16 @@ export default function PayslipGeneration() {
                 <div className="space-y-2">
                   <div className="flex justify-between items-center">
                     <span className="text-zinc-500 dark:text-zinc-400">Federal/State Tax Withholding ({settings.baseTaxRate}%)</span>
-                    <span className="font-bold text-rose-500">-${taxDeductionMonthly.toLocaleString(undefined, {maximumFractionDigits: 2})}</span>
+                    <span className="font-bold text-rose-500">-₹{taxDeductionMonthly.toLocaleString(undefined, {maximumFractionDigits: 2})}</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-zinc-500 dark:text-zinc-400">Provident Social Pension Fund ({settings.pfContribution}%)</span>
-                    <span className="font-bold text-rose-500">-${pensionFundMonthly.toLocaleString(undefined, {maximumFractionDigits: 2})}</span>
+                    <span className="font-bold text-rose-500">-₹{pensionFundMonthly.toLocaleString(undefined, {maximumFractionDigits: 2})}</span>
                   </div>
                   {customDeductionsMonthly > 0 && (
                     <div className="flex justify-between items-center">
                       <span className="text-zinc-500 dark:text-zinc-400">Custom Deductibles</span>
-                      <span className="font-bold text-rose-500">-${customDeductionsMonthly.toLocaleString(undefined, {maximumFractionDigits: 2})}</span>
+                      <span className="font-bold text-rose-500">-₹{customDeductionsMonthly.toLocaleString(undefined, {maximumFractionDigits: 2})}</span>
                     </div>
                   )}
                 </div>
@@ -282,7 +282,7 @@ export default function PayslipGeneration() {
               <div className="flex flex-col text-right w-full sm:w-auto">
                 <span className="text-[10px] font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-wider">Net Salary Remitted</span>
                 <span className="text-xl font-extrabold text-indigo-600 dark:text-indigo-400 mt-1">
-                  ${netSalaryMonthly.toLocaleString(undefined, {maximumFractionDigits: 2})} {settings.currency}
+                  ₹{netSalaryMonthly.toLocaleString(undefined, {maximumFractionDigits: 2})} {settings.currency}
                 </span>
               </div>
             </div>

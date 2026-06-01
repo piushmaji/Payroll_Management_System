@@ -69,7 +69,7 @@ export default function PayrollDashboard() {
               <span className="text-[10px] font-semibold text-zinc-400 dark:text-zinc-500 block">{card.title}</span>
               <div className="mt-3 flex items-baseline gap-1">
                 <span className={`text-2xl font-extrabold tracking-tight ${isNet ? 'text-indigo-600 dark:text-indigo-400' : isDeduction ? 'text-rose-500' : 'dark:text-white'}`}>
-                  ${(card.value / 1000).toFixed(1)}k
+                  ₹{(card.value / 1000).toFixed(1)}k
                 </span>
                 <span className="text-[10px] text-zinc-400 dark:text-zinc-500 font-medium">/{settings.currency}</span>
               </div>
@@ -133,7 +133,7 @@ export default function PayrollDashboard() {
                 <Calculator size={13} />
                 <span>Simulated payout size:</span>
               </div>
-              <span className="font-extrabold text-zinc-900 dark:text-white">${netSalaryTotal.toLocaleString()} {settings.currency}</span>
+              <span className="font-extrabold text-zinc-900 dark:text-white">₹{netSalaryTotal.toLocaleString()} {settings.currency}</span>
             </div>
           </div>
 
@@ -176,7 +176,7 @@ export default function PayrollDashboard() {
 
                 <div className="flex justify-between items-center text-[10px] text-zinc-400 dark:text-zinc-500">
                   <span>Remitted sum:</span>
-                  <span className="font-bold dark:text-zinc-300">${run.totalNet.toLocaleString()}</span>
+                  <span className="font-bold dark:text-zinc-300">₹{run.totalNet.toLocaleString()}</span>
                 </div>
 
                 <div className="flex justify-between items-center text-[9px] text-zinc-400 dark:text-zinc-500 border-t border-zinc-200/50 dark:border-zinc-800/50 pt-1.5 mt-0.5">

@@ -16,14 +16,10 @@ import SettingsPage from './pages/SettingsPage';
 export default function App() {
   const { user, currentRoute, darkMode } = useStore();
 
-  // Keep dark mode synced with html tag
+  // Force light mode
   useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [darkMode]);
+    document.documentElement.classList.remove('dark');
+  }, []);
 
   // If user is logged out, force showing login page
   if (!user) {

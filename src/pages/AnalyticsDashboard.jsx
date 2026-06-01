@@ -45,9 +45,9 @@ export default function AnalyticsDashboard() {
   const COLORS = ['#6366f1', '#10b981', '#f59e0b', '#ec4899', '#3b82f6'];
 
   const stats = [
-    { title: "Average Base Wage Pool", value: "$122,875/yr", desc: "+3.2% vs national average", color: "text-indigo-500" },
-    { title: "Tax Remittances (YTD)", value: "$68,402", desc: "100% IRS clearance score", color: "text-emerald-500" },
-    { title: "Total Benefits Managed", value: "$42,900/mo", desc: "Health, 401k, Pf funds", color: "text-pink-500" }
+    { title: "Average Base Wage Pool", value: "₹122,875/yr", desc: "+3.2% vs national average", color: "text-indigo-500" },
+    { title: "Tax Remittances (YTD)", value: "₹68,402", desc: "100% IRS clearance score", color: "text-emerald-500" },
+    { title: "Total Benefits Managed", value: "₹42,900/mo", desc: "Health, 401k, Pf funds", color: "text-pink-500" }
   ];
 
   return (
@@ -79,7 +79,7 @@ export default function AnalyticsDashboard() {
         <div className="glass-card rounded-2xl p-6 border-zinc-200/50 dark:border-zinc-900/60 shadow-sm space-y-4">
           <div className="flex flex-col">
             <span className="text-xs font-semibold text-zinc-400 dark:text-zinc-500">FISCAL EXPENDITURE CHART</span>
-            <span className="text-sm font-bold dark:text-white mt-0.5">Aggregate Payout Trends ($k)</span>
+            <span className="text-sm font-bold dark:text-white mt-0.5">Aggregate Payout Trends (₹k)</span>
           </div>
           <div className="h-64 w-full">
             <ResponsiveContainer width="100%" height="100%">
@@ -98,9 +98,11 @@ export default function AnalyticsDashboard() {
                     backgroundColor: 'rgba(24, 24, 27, 0.95)', 
                     borderColor: 'rgba(63, 63, 70, 0.5)',
                     borderRadius: '12px',
-                    color: '#fff',
-                    fontSize: '11px'
+                    fontSize: '11px',
+                    padding: '8px 12px'
                   }} 
+                  labelStyle={{ color: '#a1a1aa', fontWeight: '600' }}
+                  itemStyle={{ color: '#ffffff' }}
                 />
                 <Area type="monotone" dataKey="payout" name="Disbursements" stroke="#6366f1" strokeWidth={2.5} fillOpacity={1} fill="url(#colorPayout)" />
               </AreaChart>
@@ -123,10 +125,13 @@ export default function AnalyticsDashboard() {
                 <Tooltip 
                   contentStyle={{ 
                     backgroundColor: 'rgba(24, 24, 27, 0.95)', 
+                    borderColor: 'rgba(63, 63, 70, 0.5)',
                     borderRadius: '12px',
-                    color: '#fff',
-                    fontSize: '11px'
+                    fontSize: '11px',
+                    padding: '8px 12px'
                   }} 
+                  labelStyle={{ color: '#a1a1aa', fontWeight: '600' }}
+                  itemStyle={{ color: '#ffffff' }}
                 />
                 <Line type="monotone" dataKey="present" name="Present %" stroke="#10b981" strokeWidth={2} activeDot={{ r: 6 }} />
                 <Line type="monotone" dataKey="late" name="Late %" stroke="#f59e0b" strokeWidth={2} />
@@ -162,8 +167,8 @@ export default function AnalyticsDashboard() {
                 return (
                   <tr key={index} className="hover:bg-zinc-50/50 dark:hover:bg-zinc-950/20 transition-all">
                     <td className="py-3.5 font-bold dark:text-white">{dept.name}</td>
-                    <td className="py-3.5 dark:text-zinc-300">${dept.monthlyBudget.toLocaleString()}</td>
-                    <td className="py-3.5 dark:text-zinc-300">${actualCost.toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
+                    <td className="py-3.5 dark:text-zinc-300">₹{dept.monthlyBudget.toLocaleString()}</td>
+                    <td className="py-3.5 dark:text-zinc-300">₹{actualCost.toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
                     <td className="py-3.5 dark:text-zinc-300">{dept.head}</td>
                     <td className="py-3.5 text-right font-bold text-emerald-500">100% Compliant</td>
                   </tr>

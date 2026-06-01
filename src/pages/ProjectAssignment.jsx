@@ -103,7 +103,7 @@ export default function ProjectAssignment() {
                     <Landmark size={14} className="text-indigo-500" />
                     <div>
                       <span>BUDGET</span>
-                      <span className="block text-xs font-bold text-zinc-800 dark:text-white mt-0.5">${(proj.budget / 1000).toFixed(0)}k</span>
+                      <span className="block text-xs font-bold text-zinc-800 dark:text-white mt-0.5">₹{(proj.budget / 1000).toFixed(0)}k</span>
                     </div>
                   </div>
                 </div>
@@ -190,7 +190,7 @@ export default function ProjectAssignment() {
                   />
                 </div>
                 <div className="space-y-1">
-                  <label className="text-[11px] font-semibold text-zinc-400 dark:text-zinc-500">Budget ($)</label>
+                  <label className="text-[11px] font-semibold text-zinc-400 dark:text-zinc-500">Budget (₹)</label>
                   <input 
                     type="number" 
                     value={newProj.budget}
