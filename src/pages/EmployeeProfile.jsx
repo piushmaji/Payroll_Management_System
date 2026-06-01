@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { useStore } from '../store';
 import { 
   User, Briefcase, Landmark, FileText, Download, 
-  MapPin, Phone, Mail, Award, CheckCircle, HelpCircle, Sparkles 
+  MapPin, Phone, Mail, Award, CheckCircle, HelpCircle, Sparkles, LogOut 
 } from 'lucide-react';
 
 export default function EmployeeProfile() {
-  const { user } = useStore();
+  const { user, logout } = useStore();
   const [activeTab, setActiveTab] = useState("personal");
   const [successToast, setSuccessToast] = useState("");
 
@@ -73,6 +73,16 @@ export default function EmployeeProfile() {
               <MapPin size={14} className="text-zinc-400" />
               <span className="dark:text-zinc-300">Mumbai, India</span>
             </div>
+          </div>
+
+          <div className="w-full mt-6 pt-4 border-t border-zinc-100 dark:border-zinc-900/60">
+            <button 
+              onClick={logout}
+              className="w-full py-2.5 px-3 rounded-xl border border-rose-200 bg-rose-50/20 hover:bg-rose-50 text-rose-600 flex items-center justify-center gap-1.5 text-xs font-semibold shadow-sm transition-all"
+            >
+              <LogOut size={14} />
+              <span>Sign Out Workspace</span>
+            </button>
           </div>
         </div>
 

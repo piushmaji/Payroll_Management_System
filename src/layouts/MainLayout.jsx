@@ -35,7 +35,6 @@ export default function MainLayout({ children }) {
     { id: "payslips", label: "Payslip Generator", icon: FileSpreadsheet },
     { id: "departments", label: "Departments", icon: Building2 },
     { id: "projects", label: "Project Assignment", icon: Briefcase },
-    { id: "profile", label: "My Profile", icon: UserCircle },
     { id: "analytics", label: "Analytics Dashboard", icon: BarChart3 },
     { id: "settings", label: "Workspace Settings", icon: Settings },
   ];
@@ -79,8 +78,8 @@ export default function MainLayout({ children }) {
 
       {/* SIDEBAR FOR DESKTOP / DRAWER FOR MOBILE */}
       <aside className={`
-        fixed top-0 bottom-0 left-0 z-50 md:relative md:z-0
-        w-72 glass-sidebar flex flex-col justify-between
+        fixed top-0 bottom-0 left-0 z-50 md:sticky md:top-0 md:h-screen
+        w-60 glass-sidebar flex flex-col justify-between
         transition-transform duration-300 ease-in-out
         ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
       `}>
@@ -144,7 +143,7 @@ export default function MainLayout({ children }) {
           </div>
 
           {/* MENU ITEMS */}
-          <nav className="px-3 space-y-1 overflow-y-auto max-h-[calc(100vh-320px)]">
+          <nav className="px-3 space-y-1">
             {menuItems.map((item) => {
               const Icon = item.icon;
               const isActive = currentRoute === item.id;
@@ -172,7 +171,11 @@ export default function MainLayout({ children }) {
 
         {/* PROFILE WIDGET & FOOTER */}
         <div className="p-4 border-t border-zinc-200/50 dark:border-zinc-800/40">
-          <div className="flex items-center gap-3 mb-4">
+          <div 
+            onClick={() => setCurrentRoute("profile")}
+            className="flex items-center gap-3 cursor-pointer hover:bg-zinc-100/80 p-2 rounded-xl transition-all"
+            title="View Profile"
+          >
             <img 
               src={user?.avatar} 
               alt={user?.name} 
@@ -182,16 +185,6 @@ export default function MainLayout({ children }) {
               <span className="text-xs font-bold text-zinc-900 dark:text-white truncate">{user?.name}</span>
               <span className="text-[10px] text-zinc-400 dark:text-zinc-500 font-semibold truncate">{user?.role}</span>
             </div>
-          </div>
-
-          <div className="flex">
-            <button 
-              onClick={logout}
-              className="w-full py-2.5 px-3 rounded-xl border border-zinc-250 bg-white hover:bg-rose-50 text-rose-600 flex items-center justify-center gap-1.5 text-xs font-semibold shadow-sm transition-all"
-            >
-              <LogOut size={14} />
-              <span>Sign Out Workspace</span>
-            </button>
           </div>
         </div>
       </aside>
@@ -241,7 +234,7 @@ export default function MainLayout({ children }) {
         </header>
 
         {/* CHOSEN SCREEN CONTAINER */}
-        <div className="flex-1 p-6 md:p-8 overflow-y-auto max-h-[calc(100vh-76px)]">
+        <div className="flex-1 p-6 md:p-8">
           <div className="max-w-7xl mx-auto w-full animate-slide-in-bottom">
             {children}
           </div>

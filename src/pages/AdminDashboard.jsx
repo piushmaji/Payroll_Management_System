@@ -18,7 +18,8 @@ export default function AdminDashboard() {
     clockInStatus,
     attendanceToday,
     setCurrentRoute,
-    settings
+    settings,
+    user
   } = useStore();
 
   // Compute live KPIs
@@ -57,22 +58,18 @@ export default function AdminDashboard() {
       change: "+12.4%",
       isPositive: true,
       icon: Users,
-      shadowClass: "shadow-[0_10px_25px_rgba(99,102,241,0.06)] hover:shadow-[0_14px_30px_rgba(99,102,241,0.12)] border-indigo-100/70 bg-gradient-to-tr from-white to-indigo-50/5",
-      topLineClass: "bg-indigo-500",
-      iconClass: "text-indigo-600 bg-indigo-50/80 ring-4 ring-indigo-500/5",
-      badgeClass: "text-indigo-700 bg-indigo-50"
+      cardBg: "bg-white border-zinc-200/80 hover:border-indigo-200 hover:shadow-md",
+      iconClass: "text-indigo-600 bg-indigo-50/60 border border-indigo-100"
     },
     {
       title: "Active Monthly Cost",
-      value: `${settings.currency === 'INR' ? '₹' : settings.currency === 'USD' ? '$' : settings.currency}${(totalMonthlyCost / 1000).toFixed(1)}k`,
+      value: `₹${(totalMonthlyCost / 1000).toFixed(1)}k`,
       subtext: "Includes standard benefits",
       change: "+8.2%",
       isPositive: true,
       icon: DollarSign,
-      shadowClass: "shadow-[0_10px_25px_rgba(16,185,129,0.06)] hover:shadow-[0_14px_30px_rgba(16,185,129,0.12)] border-emerald-100/70 bg-gradient-to-tr from-white to-emerald-50/5",
-      topLineClass: "bg-emerald-500",
-      iconClass: "text-emerald-600 bg-emerald-50/80 ring-4 ring-emerald-500/5",
-      badgeClass: "text-emerald-700 bg-emerald-50"
+      cardBg: "bg-white border-zinc-200/80 hover:border-emerald-200 hover:shadow-md",
+      iconClass: "text-emerald-600 bg-emerald-50/60 border border-emerald-100"
     },
     {
       title: "Today's Presence",
@@ -81,10 +78,8 @@ export default function AdminDashboard() {
       change: "-1.5%",
       isPositive: false,
       icon: Clock,
-      shadowClass: "shadow-[0_10px_25px_rgba(245,158,11,0.06)] hover:shadow-[0_14px_30px_rgba(245,158,11,0.12)] border-amber-100/70 bg-gradient-to-tr from-white to-amber-50/5",
-      topLineClass: "bg-amber-500",
-      iconClass: "text-amber-600 bg-amber-50/80 ring-4 ring-amber-500/5",
-      badgeClass: "text-amber-700 bg-amber-50"
+      cardBg: "bg-white border-zinc-200/80 hover:border-amber-200 hover:shadow-md",
+      iconClass: "text-amber-600 bg-amber-50/60 border border-amber-100"
     },
     {
       title: "Current Payroll Status",
@@ -93,10 +88,8 @@ export default function AdminDashboard() {
       change: "Auto",
       isPositive: true,
       icon: CalendarDays,
-      shadowClass: "shadow-[0_10px_25px_rgba(236,72,153,0.06)] hover:shadow-[0_14px_30px_rgba(236,72,153,0.12)] border-pink-100/70 bg-gradient-to-tr from-white to-pink-50/5",
-      topLineClass: "bg-pink-500",
-      iconClass: "text-pink-600 bg-pink-50/80 ring-4 ring-pink-500/5",
-      badgeClass: "text-pink-700 bg-pink-50"
+      cardBg: "bg-white border-zinc-200/80 hover:border-pink-200 hover:shadow-md",
+      iconClass: "text-pink-600 bg-pink-50/60 border border-pink-100"
     }
   ];
 
@@ -115,7 +108,7 @@ export default function AdminDashboard() {
             <span>Authorized Enterprise Console</span>
           </div>
           <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight leading-tight">
-            Welcome back, Alex. Your workspace is healthy.
+            Welcome back, {user?.name || "Piush Maji"}. Your workspace is healthy.
           </h2>
           <p className="text-xs text-indigo-100/90 mt-3 leading-relaxed max-w-lg">
             All employee banking profiles have been audited for the May payroll period. Tax distributions, allowance structures, and social insurance deductions are fully synchronized with your database pipeline.
@@ -171,11 +164,8 @@ export default function AdminDashboard() {
           return (
             <div 
               key={idx} 
-              className={`relative overflow-hidden flex flex-col justify-between min-h-[145px] p-5 rounded-2xl border bg-white ${kpi.shadowClass} transform hover:-translate-y-1.5 transition-all duration-300`}
+              className={`flex flex-col justify-between min-h-[145px] p-5 rounded-2xl border ${kpi.cardBg} transition-all duration-300 transform hover:-translate-y-1`}
             >
-              {/* Colored top line indicator */}
-              <div className={`absolute top-0 left-0 right-0 h-1 ${kpi.topLineClass}`} />
-              
               <div className="flex items-start justify-between">
                 <div className="flex flex-col gap-1">
                   <span className="text-[10px] font-bold text-zinc-400 uppercase tracking-wider">{kpi.title}</span>
@@ -186,12 +176,12 @@ export default function AdminDashboard() {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between border-t border-zinc-100/80 pt-3 mt-4">
+              <div className="flex items-center justify-between border-t border-zinc-100 pt-3 mt-4">
                 <span className="text-[10px] text-zinc-400 font-medium">{kpi.subtext}</span>
                 <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-0.5 ${
                   kpi.isPositive 
-                    ? 'text-emerald-700 bg-emerald-50/80' 
-                    : 'text-rose-700 bg-rose-50/80'
+                    ? 'text-emerald-700 bg-emerald-50/80 border border-emerald-100/50' 
+                    : 'text-rose-700 bg-rose-50/80 border border-rose-100/50'
                 }`}>
                   {kpi.change}
                 </span>

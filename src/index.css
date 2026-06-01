@@ -89,18 +89,14 @@
   @apply bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-900 dark:hover:bg-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-800 font-medium rounded-xl px-4 py-2.5 text-sm transition-all active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none;
 }
 
-/* Slick Custom Scrollbar */
+/* Hide scrollbars completely for a clean app experience */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  display: none;
 }
 
-::-webkit-scrollbar-track {
-  @apply bg-transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply bg-zinc-200 dark:bg-zinc-800 rounded-full transition-colors hover:bg-zinc-300 dark:hover:bg-zinc-700;
+* {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 /* Custom Grid Background Pattern */
